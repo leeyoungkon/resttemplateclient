@@ -1,0 +1,17 @@
+apiVersion: linkerd.io/v1
+kind: ServiceProfile
+metadata:
+  name: resttemplateclient.default.svc.cluster.local
+  namespace: default
+spec:
+  routes:
+  - name: GET /payment
+    condition:
+      method: GET
+      pathRegex: /payment
+    isRetryable: true
+    timeout: 1s
+  retryBudget:
+    retryRatio: 0.2
+    minRetriesPerSecond: 10
+    ttl: 10s
