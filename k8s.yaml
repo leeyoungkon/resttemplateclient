@@ -19,7 +19,7 @@ spec:
           image: yklee2002/resttemplateclient:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
           env:
             - name: SERVER_PORT
               value: "8080"
